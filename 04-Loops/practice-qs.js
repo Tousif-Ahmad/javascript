@@ -74,41 +74,70 @@
 // }
 // console.log(fact);
 
-// q7. TEXT BASED ADVENTURE GAME 
-let playAgain = "yes";
+// // q7. TEXT BASED ADVENTURE GAME 
+// let playAgain = "yes";
 
-while(playAgain === "yes"){
-    alert("You wake up in the dark forest")
+// while(playAgain === "yes"){
+//     alert("You wake up in the dark forest")
 
-    let userChoice = prompt("You want to go left or right?");
+//     let userChoice = prompt("You want to go left or right?");
 
-    if (userChoice === "left"){
-        alert("You see something shiny in the mud");
-        userChoice = prompt("Yo want to pick it up (yes / no)");
-        if (userChoice === "yes"){
-            alert("It is magical stone, you are teleported to safety!")
-        }
-        else {
-            alert("mar gya tuu")
-        }
-    }
-    else {
-        alert("You find a cave");
-        userChoice = prompt("Do you enter the cave ? (yes / no)");
-        if (userChoice === "yes"){
-            alert("You barely escape");
-        }
-        else{
-            alert("Achaa raat beetega apka");
-        }
+//     if (userChoice === "left"){
+//         alert("You see something shiny in the mud");
+//         userChoice = prompt("Yo want to pick it up (yes / no)");
+//         if (userChoice === "yes"){
+//             alert("It is magical stone, you are teleported to safety!")
+//         }
+//         else {
+//             alert("mar gya tuu")
+//         }
+//     }
+//     else {
+//         alert("You find a cave");
+//         userChoice = prompt("Do you enter the cave ? (yes / no)");
+//         if (userChoice === "yes"){
+//             alert("You barely escape");
+//         }
+//         else{
+//             alert("Achaa raat beetega apka");
+//         }
 
-    }
-    userChoice = prompt("Do you want to play again ? (yes / no) ");
-    playAgain = "no"
-    if (userChoice === "no"){
-        alert("Thanks for playing");
-    }
+//     }
+//     userChoice = prompt("Do you want to play again ? (yes / no) ");
+//     playAgain = "no"
+//     if (userChoice === "no"){
+//         alert("Thanks for playing");
+//     }
 
-}
+// }
+
+
+// NESTED LOOPS => A loop inside another loop.
+// . for every iteration of the outer loop the inner loop runs completely.
+// for(let i = 1; i<=3; i++){
+//     for(let j = 1; j<=2; j++){
+//         console.log(`i = ${i} , j = ${j}`);
+//     }
+// }
+
+
+// SQUARE PATTERN 
+// for (let i = 1; i<=3; i++){
+//     let str = "";
+//     for (let j = 1; j<=3; j++){
+//         str = str + "* "
+//     }
+//     console.log(str);
+// }
+
+
+// RIGHT ANGLE TRIANGLE 
+// for (let i = 1; i<=5; i++){
+//     let row = "";
+//     for (let j = 1; j<=i; j++){
+//         row = row + "* "
+//     }
+//     console.log(row);
+// }
 
 
