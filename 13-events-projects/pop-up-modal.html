@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pop-up modal</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      .openModalBtn {
+        margin: 50px;
+        padding: 10px 20px;
+        font-size: 40px;
+      }
+
+      .modalContainer {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.339);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modelContent {
+        background-color: white;
+        padding: 50px;
+        border-radius: 10px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="openModalBtn">Open Modal</button>
+
+    <div class="modalContainer">
+      <div class="modelContent">
+        <h1>Hey this is model</h1>
+        <p>Kuch samajah aaya ki nahi</p>
+      </div>
+    </div>
+
+    <!-- script -->
+     <script>
+        let openModalBtn = document.querySelector(".openModalBtn");
+        let modalContainer = document.querySelector(".modalContainer");
+        let modelContent = document.querySelector(".modelContent");
+
+        openModalBtn.addEventListener("click", function(){
+            modalContainer.style.display = "flex";
+        })
+
+        modalContainer.addEventListener("click", function(e){
+            if (e.target.className === "modalContainer"){
+                modalContainer.style.display = "none";
+            }
+        })
+
+     </script>
+  </body>
+</html>
