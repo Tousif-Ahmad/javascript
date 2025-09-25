@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Shooter</title>
+    <!-- style -->
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: brown;
+        color: white;
+        padding: 10px 30px;
+        font-size: 40px;
+      }
+
+      .numberContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        max-width: 60rem;
+        margin: auto;
+        padding: 40px;
+      }
+
+      .circle {
+        width: 60px;
+        height: 56px;
+        background-color: rgb(216, 43, 43);
+        border-radius: 100%;
+        color: white;
+        display: grid;
+        place-content: center;
+        font-size: 23px;
+        cursor: grab;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>Timer: <span class="timerValue">5</span> sec</div>
+      <div>Target: <span class="targetValue">10</span></div>
+      <div>Score: <span class="scoreValue">0</span></div>
+    </header>
+
+    <div class="numberContainer">
+      <div class="circle">1</div>
+      <div class="circle">3</div>
+      <div class="circle">5</div>
+    </div>
+
+    <!-- script -->
+    <script>
+      let numberContainer = document.querySelector(".numberContainer");
+      let timerValue = document.querySelector(".timerValue");
+      let targetValue = document.querySelector(".targetValue");
+      let scoreValue = document.querySelector(".scoreValue");
+      let numberOfCircles = 85;
+      let timer = 5;
+      let target;
+
+      restartGame();
+      startTimer();
+
+      function restartGame() {
+        timerReset();
+        generateTarget();
+        generateNumbers();
+        scoreValue.innerText = 0;
+      }
+
+      function timerReset() {
+        timerValue.innerText = timer;
+        timer = 5;
+      }
+
+      function startTimer() {
+        setInterval(() => {
+          if (timer <= 0) {
+            numberContainer.innerHTML = `
+                <div>Game Over 
+                <button onclick=restartGame()>Reset Game</button>
+                </div>
+                `;
+            return;
+          }
+          timer--;
+          timerValue.innerText = timer;
+        }, 1000);
+      }
+
+      function generateTarget() {
+        target = Math.ceil(Math.random() * 10);
+        targetValue.innerText = target;
+      }
+
+      function generateNumbers() {
+        numberContainer.innerHTML = "";
+        for (let i = 1; i <= numberOfCircles; i++) {
+          let divElem = document.createElement("div");
+          divElem.className = "circle";
+          let number = Math.ceil(Math.random() * 10);
+          divElem.innerText = number;
+
+          numberContainer.append(divElem);
+        }
+      }
+
+      numberContainer.addEventListener("click", function (event) {
+        if (event.target.className === "circle") {
+          let number = Number(event.target.innerText);
+          if (target === number) {
+            let sv = Number(scoreValue.innerText);
+            sv += 10;
+            scoreValue.innerText = sv;
+          }
+          generateTarget();
+        }
+      });
+    </script>
+  </body>
+</html>
