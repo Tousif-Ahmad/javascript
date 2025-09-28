@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closest Ancestors</title>
+    <style>
+        #grand-parent{
+            padding: 20px;
+            background-color: green;
+        }
+        #parent{
+            padding: 10px;
+            background-color: red;
+
+        }
+        #child{
+            padding: 5px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent" id="grand-parent">
+        GRAND PARENT
+        <div class="parent" id="parent">
+            PARENT
+            <div id="child">
+                CHILD
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
